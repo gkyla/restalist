@@ -1,0 +1,20 @@
+{
+	"newRestaurant": [
+		{
+			"id": "-",
+			"name": "Eurothistic Cafeno",
+			"description": "a coffee shop suitable for hangout with friends, a very complete coffee list. a place that makes you comfortable",
+			"pictureId": "https://images.unsplash.com/photo-1525610553991-2bede1a236e2?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=10",
+			"city": "Jogja",
+			"rating": 4.9
+		},
+		{
+			"id": "-",
+			"name": "Cafeoboy",
+			"description": "This place is perfect for those of you who are looking for a cool and calming atmosphere. suitable also for the needs of a family cafe restaurant",
+			"pictureId": "https://images.unsplash.com/photo-1521017432531-fbd92d768814?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1350&q=10",
+			"city": "Ternate",
+			"rating": 4.8
+		}
+	]
+}
