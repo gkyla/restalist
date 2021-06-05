@@ -1,10 +1,10 @@
 class Navbar extends HTMLElement {
-    connectedCallback() {
-        this.render();
-    }
+  connectedCallback() {
+    this.render();
+  }
 
-    render() {
-        this.innerHTML = `
+  render() {
+    this.innerHTML = `
         <nav>
             <div class="nav-container">
             <div class="logo" tabindex="0">
@@ -21,13 +21,13 @@ class Navbar extends HTMLElement {
                 <li><a href="#/home">Home</a></li>
                 <li><a href="#/favorite">Favorite</a></li>
                 <li>
-                    <a href="https://www.instagram.com/kagget_z/">About Us</a>
+                    <a href="https://github.com/gkyla" target="_blank">About Us</a>
                 </li>
             </ul>
             </div>
         </nav>
         `;
-    }
+  }
 }
 
 customElements.define('restalist-navbar', Navbar);
