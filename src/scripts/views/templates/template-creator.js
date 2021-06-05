@@ -18,11 +18,14 @@ const createSkeletonRestaurantWeekItem = () => `
     `;
 
 const createSkeletonRestaurantListItem = (numberToDisplay) => {
-    let cardSkeleton = '';
+  let cardSkeleton = '';
 
-    for (let currentNumber = 0; currentNumber <= numberToDisplay; currentNumber += 1) {
-        cardSkeleton
-            += `
+  for (
+    let currentNumber = 0;
+    currentNumber <= numberToDisplay;
+    currentNumber += 1
+  ) {
+    cardSkeleton += `
         <div div class="card skeleton" >
         <div class="card-preview">
 
@@ -44,9 +47,9 @@ const createSkeletonRestaurantListItem = (numberToDisplay) => {
         <div class="card-border"></div>
     </div >
         `;
-    }
+  }
 
-    return cardSkeleton;
+  return cardSkeleton;
 };
 
 const createRestaurantWeek = () => `
@@ -75,24 +78,17 @@ const createRestaurantList = () => `
     </section>
     `;
 
-const createRestaurantWeekItem = (restaurantRatingFiltered) => `
-   <div class="box box1">
-      <img class="lazyload" data-src="${CONFIG.BASE_URL_API_IMAGE_SMALL}/${restaurantRatingFiltered[0].pictureId}" alt="${restaurantRatingFiltered[0].name} Restaurant" >
-      <div class="panel">${restaurantRatingFiltered[0].name} <br> <div class="rating" >${restaurantRatingFiltered[0].rating} <img class="star lazyload" data-src="images/star.png" alt="Rating"></div></div>
-   </div>
-   <div class="box box2" >
-      <img class="lazyload" data-src="${CONFIG.BASE_URL_API_IMAGE_SMALL}/${restaurantRatingFiltered[1].pictureId}" alt="${restaurantRatingFiltered[1].name} Restaurant" >
-      <div class="panel">${restaurantRatingFiltered[1].name} <br> <div class="rating">${restaurantRatingFiltered[1].rating} <img class="star lazyload"  data-src="images/star.png" alt="Rating"></div></div>
-   </div>
-   <div class="box box3" >
-      <img class="lazyload" data-src="${CONFIG.BASE_URL_API_IMAGE_SMALL}/${restaurantRatingFiltered[2].pictureId}" alt="${restaurantRatingFiltered[2].name} Restaurant">
-      <div class="panel">${restaurantRatingFiltered[2].name} <br> <div class="rating">${restaurantRatingFiltered[2].rating} <img class="star lazyload"  data-src="images/star.png" alt="Rating"></div></div>
-   </div>
-   <div class="box box4">
-      <img class="lazyload" data-src="${CONFIG.BASE_URL_API_IMAGE_SMALL}/${restaurantRatingFiltered[3].pictureId}" alt="${restaurantRatingFiltered[3].name} Restaurant" >
-      <div class="panel">${restaurantRatingFiltered[3].name} <br> <div class="rating">${restaurantRatingFiltered[3].rating} <img class="star lazyload"  data-src="images/star.png" alt="Rating"></div></div>
-   </div>
-`;
+const createRestaurantWeekItem = (filteredRating, i) => `
+    <div class="box box${i + 1}">
+       <img class="lazyload" data-src="${CONFIG.BASE_URL_API_IMAGE_SMALL}/${
+  filteredRating.pictureId
+}" alt="${filteredRating.name} Restaurant" >
+       <div class="panel">${filteredRating.name} <br> 
+       <div class="rating" >${filteredRating.rating} 
+       <img class="star lazyload" data-src="images/star.png" alt="Rating"></div></div>
+    </div>
+   
+ `;
 
 const createRestaurantListItem = (restaurant) => `
     <div div class="card" >
@@ -249,46 +245,46 @@ const createRestaurantDetail = (restaurant) => `
 `;
 
 const createRestaurantDetailItems = (restaurant) => {
-    const foodItems = restaurant.menus.foods;
-    const drinkItems = restaurant.menus.drinks;
-    const consumerItems = restaurant.consumerReviews;
-    const categoriesItems = restaurant.categories;
+  const foodItems = restaurant.menus.foods;
+  const drinkItems = restaurant.menus.drinks;
+  const consumerItems = restaurant.customerReviews;
+  const categoriesItems = restaurant.categories;
 
-    // Mendapatkan Container untuk menampung data array of object
-    const ulFoods = document.querySelector('.ul-foods');
-    const ulDrinks = document.querySelector('.ul-drinks');
-    const userContainer = document.querySelector('.user-container');
-    const categoriesContainer = document.querySelector('.categories-detail');
+  // Mendapatkan Container untuk menampung data array of object
+  const ulFoods = document.querySelector('.ul-foods');
+  const ulDrinks = document.querySelector('.ul-drinks');
+  const userContainer = document.querySelector('.user-container');
+  const categoriesContainer = document.querySelector('.categories-detail');
 
-    foodItems.forEach((item) => {
-        ulFoods.innerHTML += `<li>${item.name}</li>`;
-    });
-    drinkItems.forEach((item) => {
-        ulDrinks.innerHTML += `<li>${item.name}</li>`;
-    });
-    categoriesItems.forEach((item) => {
-        categoriesContainer.innerHTML += `${item.name} `;
-    });
-    consumerItems.forEach((item) => {
-        userContainer.innerHTML += `
-        <div class="user">
-            <div class="img-box">
-                <img src="images/user.png" alt="User Comment" />
-            </div>
-            <div class="user-content">
-                <div class="name">
-                    ${item.name}
-                </div>
-                <div class="date">
-                    ${item.date}
-                </div>
-                <div class="review">
-                    ${item.review}
-                </div>
-            </div>
-        </div>
-        `;
-    });
+  foodItems.forEach((item) => {
+    ulFoods.innerHTML += `<li>${item.name}</li>`;
+  });
+  drinkItems.forEach((item) => {
+    ulDrinks.innerHTML += `<li>${item.name}</li>`;
+  });
+  categoriesItems.forEach((item) => {
+    categoriesContainer.innerHTML += `${item.name} `;
+  });
+  consumerItems.forEach((item) => {
+    userContainer.innerHTML += `
+          <div class="user">
+              <div class="img-box">
+                  <img src="images/user.png" alt="User Comment" />
+              </div>
+              <div class="user-content">
+                  <div class="name">
+                      ${item.name}
+                  </div>
+                  <div class="date">
+                      ${item.date}
+                  </div>
+                  <div class="review">
+                      ${item.review}
+                  </div>
+              </div>
+          </div>
+          `;
+  });
 };
 
 const createErrorPage = () => `
@@ -312,16 +308,16 @@ const createLikedButtonTemplate = () => `
 `;
 
 export {
-    createRestaurantList,
-    createRestaurantListItem,
-    createRestaurantWeek,
-    createRestaurantWeekItem,
-    createRestaurantCafe,
-    createRestaurantCafeItem,
-    createRestaurantDetail,
-    createRestaurantDetailItems,
-    createErrorPage,
-    createLikeButtonTemplate,
-    createLikedButtonTemplate,
-    createSkeletonRestaurantListItem,
+  createRestaurantList,
+  createRestaurantListItem,
+  createRestaurantWeek,
+  createRestaurantWeekItem,
+  createRestaurantCafe,
+  createRestaurantCafeItem,
+  createRestaurantDetail,
+  createRestaurantDetailItems,
+  createErrorPage,
+  createLikeButtonTemplate,
+  createLikedButtonTemplate,
+  createSkeletonRestaurantListItem,
 };
