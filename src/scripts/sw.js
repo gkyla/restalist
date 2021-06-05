@@ -21,7 +21,7 @@ precacheAndRoute([
 ]);
 
 registerRoute(
-    ({ url }) => url.origin === 'https://dicoding-restaurant-api.el.r.appspot.com',
+    ({ url }) => url.origin === 'https://restaurant-api.dicoding.dev',
     new StaleWhileRevalidate({
         cacheName: 'data-cache',
     }),
